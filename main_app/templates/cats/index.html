@@ -1,15 +1,16 @@
-<html>
-	<head>
-		<title>catcollector</title>
-	</head>
-	<body>
-		<h1>the catcollector's cats</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 		<hr />
-		{% for cat in cats %}
-		<p>Name: {{ cat.name }}</p>
-        <p>Age: {{ cat.age }}</p>
+        {% for cat in cats %}
+        <a href="/cats/{{cat.id}}">
+        <p>Name: {{ cat.name }}</p>
+        </a>
+        {% if cat.age > 0 %}
+            <p>Age: {{ cat.age }}</p>
+        {% else %}
+            <p>Age: Kitten</p>
+        {% endif %}
         <hr />
 		{% endfor %}
-		<footer>All Rights Reserved, catcollector 2018</footer>
-	</body>
-</html>
+{% endblock %}

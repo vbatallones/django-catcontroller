@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <h2>Name: {{ cat.name }}</h2>
+    <h2>Breed: {{ cat.breed }}</h2>
+    <h2>Description: {{ cat.description }}</h2>
+    <h2>Age: {{ cat.age }}</h2>
+
+    <a href="{% url 'cats_update' cat.id %}">Update details</a>
+{% endblock %}
